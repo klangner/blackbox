@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+import json
 
 app = Flask(__name__)
 
@@ -10,22 +11,26 @@ def index():
 
 @app.route('/tasks', methods=['GET'])
 def list_tasks():
-    return 'List of tasks.'
+    tasks = [{'id': 1, 'name': 'Task 1'}, {'id': 2, 'name': 'Task 2'}, {'id': 3, 'name': 'Task 3'}]
+    return json.dumps(tasks)
 
 
 @app.route('/tasks/<int:task_id>')
 def get_task(task_id):
-    return 'Task: %d' % task_id
+    task = {'id': task_id, 'name': 'Task 1'}
+    return json.dumps(task)
 
 
 @app.route('/tasks', methods=['POST'])
 def add_tasks():
-    return 'Add new task.'
+    task = {'id': -1, 'name': 'Task 1'}
+    return json.dumps(task)
 
 
 @app.route('/tasks/<int:task_id>', methods=['PUT'])
 def update_task(task_id):
-    return 'Update task: %d' % task_id
+    task = {'id': task_id, 'name': 'Task 1'}
+    return json.dumps(task)
 
 
 @app.route('/tasks/<int:task_id>', methods=['DELETE'])

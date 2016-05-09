@@ -1,0 +1,14 @@
+# List of tasks
+GET /tasks
+
+# Single task
+GET /tasks/<task_id>
+
+# Add task
+POST /tasks
+
+# Update task
+PUT /tasks/<task_id>
+
+# Delete task
+DELETE /tasks/<task_id>
